@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="WARN" monitorInterval="600" >
+
+   <Properties>
+       <Property name="PID">???</Property>
+       <Property name="LOG_EXCEPTION_CONVERSION_WORD">%xwEx</Property>
+       <Property name="LOG_LEVEL_PATTERN">%-5level</Property>
+       <Property name="LOG_DATEFORMAT_PATTERN">yyyy-MM-dd HH:mm:ss</Property>
+   </Properties>
+
+    <appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout>
+                <charset>UTF-8</charset>
+                <Pattern>${sys:CONSOLE_LOG_PATTERN}</Pattern>
+            </PatternLayout>
+        </Console>
+
+        <RollingRandomAccessFile name="RollingFile" fileName="${sys:LOG_FILE_NAME}"
+        filePattern="${sys:LOG_FILE_PATTERN}">
+            <PatternLayout>
+                <charset>UTF-8</charset>
+                <Pattern>${sys:CONSOLE_LOG_PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="1000 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingRandomAccessFile>
+
+    </appenders>
+
+    <loggers>
+        <AsyncRoot level="info">
+            <appender-ref ref="Console"/>
+            <appender-ref ref="RollingFile"/>
+        </AsyncRoot>
+    </loggers>
+
+</configuration>

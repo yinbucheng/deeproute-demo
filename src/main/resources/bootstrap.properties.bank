@@ -1,0 +1,4 @@
+#nacos????
+spring.cloud.nacos.config.server-addr=nacos.deeproute.ai:80
+spring.cloud.nacos.config.namespace=4554c449-0bf2-4143-9c27-d4f7202e3a61
+spring.cloud.nacos.config.file-extension=properties

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.deeproute.demo.mapper.TestMapper">
+    <sql id="testTable">
+        test_table
+    </sql>
+
+    <select id="list" parameterType="cn.deeproute.demo.model.vo.PageVO"
+            resultType="cn.deeproute.demo.model.dto.TestDTO">
+        select id,title,sub_title as subTitle,remark,refer_cnt as referCnt from
+        <include refid="testTable"/>
+    </select>
+</mapper>
