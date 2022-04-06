@@ -1,2 +1,5 @@
 
-]	java:S125$"<This block of commented-out lines of code should be removed.(ˆ¥ã©şÿÿÿÿ8Òò©Ïÿ/
+q
+java:S3252&"OUse static access with "com.github.pagehelper.page.PageMethod" for "startPage".(”ƒË»ùÿÿÿÿ8îò›Ğÿ/
+~
+java:S1488("\Immediately return this expression instead of assigning it to the temporary variable "page".(½Òÿéÿÿÿÿÿ8€°Ğÿ/
