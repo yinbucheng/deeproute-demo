@@ -29,7 +29,9 @@ public class WebMvcEnvInject extends AbstractProfileEnvironmentPostProcessor {
 
     @Override
     public void onLocal(ConfigurableEnvironment env, SpringApplication application) {
-
+        //注入默认nacos注册中心配置
+        PropertySourceUtils.put(env, "spring.cloud.nacos.discovery.server-addr", "nacos.deeproute.ai:80");
+        PropertySourceUtils.put(env, "spring.cloud.nacos.discovery.namespace", "4554c449-0bf2-4143-9c27-d4f7202e3a61");
     }
 
     public void onAllProfiles(ConfigurableEnvironment env, SpringApplication application) {
