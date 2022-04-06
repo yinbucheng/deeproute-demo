@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration status="WARN" monitorInterval="600" >
+<configuration status="WARN">
 
-   <Properties>
-       <Property name="PID">???</Property>
-       <Property name="LOG_EXCEPTION_CONVERSION_WORD">%xwEx</Property>
-       <Property name="LOG_LEVEL_PATTERN">%-5level</Property>
-       <Property name="LOG_DATEFORMAT_PATTERN">yyyy-MM-dd HH:mm:ss</Property>
-   </Properties>
+    <Properties>
+        <Property name="PID">???</Property>
+        <Property name="LOG_EXCEPTION_CONVERSION_WORD">%xwEx</Property>
+        <Property name="LOG_LEVEL_PATTERN">%-5level</Property>
+        <Property name="LOG_DATEFORMAT_PATTERN">yyyy-MM-dd HH:mm:ss</Property>
+    </Properties>
 
     <appenders>
         <Console name="Console" target="SYSTEM_OUT">
@@ -17,7 +17,7 @@
         </Console>
 
         <RollingRandomAccessFile name="RollingFile" fileName="${sys:LOG_FILE_NAME}"
-        filePattern="${sys:LOG_FILE_PATTERN}">
+                                 filePattern="${sys:LOG_FILE_PATTERN}">
             <PatternLayout>
                 <charset>UTF-8</charset>
                 <Pattern>${sys:CONSOLE_LOG_PATTERN}</Pattern>

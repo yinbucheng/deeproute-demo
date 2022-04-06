@@ -8,6 +8,7 @@ import cn.deeproute.demo.system.time.PrintArgs;
 import cn.deeproute.demo.system.time.PrintRT;
 import cn.deeproute.demo.system.time.PrintTime;
 import cn.deeproute.demo.system.web.NotAutoWrap;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("test")
+@Slf4j
 public class TestController {
     @Autowired
     private ITestService testService;
@@ -31,6 +33,7 @@ public class TestController {
     @RequestMapping(value = "helloWord", produces = MediaType.APPLICATION_JSON_VALUE)
     @PrintTime
     public Object helloWord() {
+        log.debug("hello word");
         return "hello word";
     }
 
