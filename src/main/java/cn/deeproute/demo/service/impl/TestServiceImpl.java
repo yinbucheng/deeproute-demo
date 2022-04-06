@@ -6,6 +6,7 @@ import cn.deeproute.demo.model.po.TestPO;
 import cn.deeproute.demo.model.vo.PageVO;
 import cn.deeproute.demo.model.vo.TestVO;
 import cn.deeproute.demo.service.ITestService;
+import cn.deeproute.demo.system.web.BizRuntimeException;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.BeanUtils;
@@ -35,9 +36,22 @@ public class TestServiceImpl implements ITestService {
 
     @Override
     public PageInfo<TestDTO> list(PageVO vo) {
-        PageHelper.startPage(vo.getPageNum(),vo.getPageSize());
+        PageHelper.startPage(vo.getPageNum(), vo.getPageSize());
         List<TestDTO> list = testMapper.list(vo);
         PageInfo<TestDTO> page = new PageInfo<>(list);
         return page;
+    }
+
+    @Override
+    public void updateById(TestVO vo) {
+        TestPO testPO = testMapper.selectByPrimaryKey(vo.getId());
+        if(testPO==null){
+            throw new BizRuntimeException(500,"id is not valid");
+        }
+        BeanUtils.copyProperties(vo, testPO);
+        int rowCount = testMapper.updateByPrimaryKeySelective(testPO);
+        if(rowCount<=0){
+            throw new BizRuntimeException(501,"update db fail");
+        }
     }
 }

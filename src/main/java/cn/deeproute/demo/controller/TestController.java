@@ -27,29 +27,36 @@ public class TestController {
     @Autowired
     private NacosConfig config;
 
-    @RequestMapping(value = "helloWord", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value = "helloWord", produces = MediaType.APPLICATION_JSON_VALUE)
     @PrintTime
     public Object helloWord() {
         return "hello word";
     }
 
 
-    @RequestMapping(value = "save", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value = "save", produces = MediaType.APPLICATION_JSON_VALUE)
     @PrintArgs
     public Object save(@RequestBody @Validated TestVO vo) {
         testService.save(vo);
         return "save success";
     }
 
-    @RequestMapping(value = "config",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value = "update", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PrintTime
+    public Object update(@RequestBody @Validated TestVO vo) {
+        testService.updateById(vo);
+        return "success";
+    }
+
+    @RequestMapping(value = "config", produces = MediaType.APPLICATION_JSON_VALUE)
     @PrintRT
-    public Object config(){
+    public Object config() {
         return config;
     }
 
-    @RequestMapping(value = "list",produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "list", produces = MediaType.APPLICATION_JSON_VALUE)
     @PrintArgs
-    public Object list(@RequestBody PageVO vo){
+    public Object list(@RequestBody PageVO vo) {
         return testService.list(vo);
     }
 }

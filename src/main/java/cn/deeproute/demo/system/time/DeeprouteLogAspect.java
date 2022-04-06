@@ -38,7 +38,11 @@ public class DeeprouteLogAspect {
             return point.proceed();
         } catch (Throwable e) {
             log.error("methodInvoke around fail");
-            throw new RuntimeException(e);
+            if (e instanceof RuntimeException) {
+                throw (RuntimeException) e;
+            } else {
+                throw new RuntimeException(e);
+            }
         } finally {
             stopWatch.stop();
             log.info("{} use {} time", signature.toString(), stopWatch.getTotalTimeMillis());
@@ -55,7 +59,11 @@ public class DeeprouteLogAspect {
             return rtVal;
         } catch (Throwable throwable) {
             log.error("{} execute fail,error detail:", signature.toString(), throwable);
-            throw new RuntimeException(throwable);
+            if (throwable instanceof RuntimeException) {
+                throw (RuntimeException) throwable;
+            } else {
+                throw new RuntimeException(throwable);
+            }
         }
     }
 

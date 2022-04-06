@@ -17,4 +17,6 @@ public interface ITestService {
     void save(TestVO vo);
 
     PageInfo<TestDTO> list(PageVO vo);
+
+    void updateById(TestVO vo);
 }
