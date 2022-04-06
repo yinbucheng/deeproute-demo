@@ -37,7 +37,7 @@ public class LogEnvInjector extends AbstractProfileEnvironmentPostProcessor {
 
     @Override
     public void onAllProfiles(ConfigurableEnvironment env, SpringApplication application) {
-        PropertySourceUtils.put(env, "deeproute.logging.showSql", true);
+        PropertySourceUtils.put(env, "deeproute.logging.showSql", false);
         Binder binder = Binder.get(env);
         BindResult<DeeprouteLogProperties> bindResult = binder.bind("deeproute.logging", Bindable.of(DeeprouteLogProperties.class));
         DeeprouteLogProperties deeprouteLogProperties;

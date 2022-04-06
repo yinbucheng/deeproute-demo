@@ -4,6 +4,8 @@ package cn.deeproute.demo.system;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.env.EnvironmentPostProcessor;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.springframework.core.env.ConfigurableEnvironment;
 
 import java.util.Arrays;
@@ -15,7 +17,7 @@ import java.util.List;
  * @description
  */
 @Slf4j
-public abstract class AbstractProfileEnvironmentPostProcessor implements EnvironmentPostProcessor {
+public abstract class AbstractProfileEnvironmentPostProcessor implements EnvironmentPostProcessor, Ordered {
     public static final String LOCAL ="local";
     public static final String STG = "stg";
     public static final String DEV = "dev";
@@ -54,4 +56,8 @@ public abstract class AbstractProfileEnvironmentPostProcessor implements Environ
 
     public abstract void onAllProfiles(ConfigurableEnvironment env,SpringApplication application);
 
+    @Override
+    public int getOrder() {
+        return Integer.MAX_VALUE;
+    }
 }

@@ -17,7 +17,7 @@ import java.util.function.BiConsumer;
  * @description
  */
 public class PropertySourceUtils {
-    private static final String CUSTOM_PROPERTIES = "custom.properties";
+    private static final String DEFAULT_PROPERTIES = "defaultProperties";
     private static final String PRIORITY_PROPERTIES = "priority.properties";
     private static final String INNER_PROPERTIES = "inner.properties";
 
@@ -64,7 +64,7 @@ public class PropertySourceUtils {
     }
 
     public static Map<String, Object> prepareOrGetDefaultLocation(ConfigurableEnvironment environment) {
-        return prepareOrGetMapSource(environment, CUSTOM_PROPERTIES, MutablePropertySources::addLast);
+        return prepareOrGetMapSource(environment, DEFAULT_PROPERTIES, MutablePropertySources::addLast);
     }
 
     public static void putPriority(ConfigurableEnvironment environment, String name, Object object) {
