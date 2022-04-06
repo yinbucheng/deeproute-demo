@@ -4,4 +4,5 @@ org.springframework.boot.env.EnvironmentPostProcessor=cn.deeproute.demo.system.l
 org.springframework.context.ApplicationListener=cn.deeproute.demo.system.SpringBootReady
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=cn.deeproute.demo.system.log.DeeprouteAutoConfiguration,\
   cn.deeproute.demo.system.web.GlobalErrorControllerAdvice,\
- cn.deeproute.demo.system.web.ResultDTOBodyAdvice
+ cn.deeproute.demo.system.web.ResultDTOBodyAdvice,\
+  cn.deeproute.demo.system.ConfigChangeListener

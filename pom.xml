@@ -49,8 +49,8 @@
             <artifactId>spring-boot-starter</artifactId>
             <exclusions>
                 <exclusion>
-                    <artifactId>spring-boot-starter-logging</artifactId>
                     <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
@@ -130,6 +130,18 @@
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper</artifactId>
             <version>5.1.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.purgeteam</groupId>
+            <artifactId>dynamic-config-spring-boot-starter</artifactId>
+            <version>0.1.0.RELEASE</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
     </dependencies>
