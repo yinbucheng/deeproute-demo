@@ -24,12 +24,12 @@ public class DeeprouteDemoApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(DeeprouteDemoApplication.class, args);
-        try {
-            Thread.sleep(1000*30);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        Configurator.setAllLevels(LogManager.getRootLogger().getName(), Level.DEBUG);
+//        try {
+//            Thread.sleep(1000*30);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//        Configurator.setAllLevels(LogManager.getRootLogger().getName(), Level.DEBUG);
         log.info("Deeproute server start success");
     }
 }
