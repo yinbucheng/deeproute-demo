@@ -18,30 +18,31 @@ import java.util.Set;
 public class LogConfigChangeObserver extends ConfigChangeObserver {
 
     @Override
-    public void handle(String key,  Object value) {
+    public void handle(String key, Object value) {
         if (key.equals("deeproute.logging.maxLength") || key.equals("deeproute.logging.max-length")) {
-            System.setProperty("LOG_MAX_LEN", String.valueOf(value));
-
+            DeeprouteMaxLengthConverter.setMaxLength(Integer.parseInt(value + ""));
+            return;
         }
         if (key.equals("deeproute.logging.lineNum")) {
-            System.setProperty("LOG_LINE_NUM", String.valueOf(value));
+            DeepRouteThrowablePatternConverter.updateLineNum(String.valueOf(value));
+            return;
         }
         if (key.equals("deeproute.logging.level")) {
-            switch ((String)value) {
+            switch ((String) value) {
                 case "trace":
-                    Configurator.setAllLevels(LogManager.getRootLogger().getName(),org.apache.logging.log4j.Level.TRACE);
+                    Configurator.setAllLevels(LogManager.getRootLogger().getName(), org.apache.logging.log4j.Level.TRACE);
                     break;
                 case "debug":
                     Configurator.setAllLevels(LogManager.getRootLogger().getName(), Level.DEBUG);
                     break;
                 case "info":
-                    Configurator.setAllLevels(LogManager.getRootLogger().getName(),Level.INFO);
+                    Configurator.setAllLevels(LogManager.getRootLogger().getName(), Level.INFO);
                     break;
                 case "warn":
-                    Configurator.setAllLevels(LogManager.getRootLogger().getName(),Level.WARN);
+                    Configurator.setAllLevels(LogManager.getRootLogger().getName(), Level.WARN);
                     break;
                 case "error":
-                    Configurator.setAllLevels(LogManager.getRootLogger().getName(),Level.ERROR);
+                    Configurator.setAllLevels(LogManager.getRootLogger().getName(), Level.ERROR);
                     break;
                 default:
                     log.error("日志级别修改失败！");

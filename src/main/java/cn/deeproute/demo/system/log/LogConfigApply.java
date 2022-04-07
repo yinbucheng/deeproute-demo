@@ -38,6 +38,11 @@ public class LogConfigApply implements SmartInitializingSingleton, EnvironmentAw
                 log.error("日志级别修改失败！");
                 break;
         }
+        String maxLength = environment.getProperty("deeproute.logging.maxLength");
+        DeeprouteMaxLengthConverter.setMaxLength(Integer.valueOf(maxLength));
+        String maxLine = environment.getProperty("deeproute.logging.lineNum");
+        DeepRouteThrowablePatternConverter.updateLineNum(maxLine);
+
     }
 
     @Override

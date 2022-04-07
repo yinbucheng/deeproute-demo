@@ -7,5 +7,5 @@ package cn.deeproute.demo.system.log;
  */
 public interface LogContants {
     int DEFAULT_MAX_LENGTH = 100;
-    int DEFAULT_LINE_NUM = 100;
+    int DEFAULT_LINE_NUM = 2;
 }
