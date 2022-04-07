@@ -18,18 +18,16 @@ import java.util.Set;
 public class LogConfigChangeObserver extends ConfigChangeObserver {
 
     @Override
-    public void handle(String key, Object oldValue, Object newValue) {
-        log.info("{} {}", oldValue, newValue);
+    public void handle(String key,  Object value) {
         if (key.equals("deeproute.logging.maxLength") || key.equals("deeproute.logging.max-length")) {
-            System.setProperty("LOG_MAX_LEN", String.valueOf(newValue));
+            System.setProperty("LOG_MAX_LEN", String.valueOf(value));
 
         }
         if (key.equals("deeproute.logging.lineNum")) {
-            System.setProperty("LOG_LINE_NUM", String.valueOf(newValue));
+            System.setProperty("LOG_LINE_NUM", String.valueOf(value));
         }
         if (key.equals("deeproute.logging.level")) {
-
-            switch ((String)newValue) {
+            switch ((String)value) {
                 case "trace":
                     Configurator.setAllLevels(LogManager.getRootLogger().getName(),org.apache.logging.log4j.Level.TRACE);
                     break;

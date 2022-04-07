@@ -63,4 +63,9 @@ public class TestController {
     public Object list(@RequestBody PageVO vo) {
         return testService.list(vo);
     }
+
+    @RequestMapping("error")
+    public Object error(){
+        throw new RuntimeException("happen error");
+    }
 }
