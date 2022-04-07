@@ -2,7 +2,7 @@ org.springframework.boot.env.EnvironmentPostProcessor=cn.deeproute.demo.system.l
   cn.deeproute.demo.system.web.WebMvcEnvInject,\
   cn.deeproute.demo.system.sql.MySQLEnvInjector
 org.springframework.context.ApplicationListener=cn.deeproute.demo.system.SpringBootReady
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=cn.deeproute.demo.system.log.DeeprouteAutoConfiguration,\
-  cn.deeproute.demo.system.web.GlobalErrorControllerAdvice,\
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=cn.deeproute.demo.system.web.GlobalErrorControllerAdvice,\
  cn.deeproute.demo.system.web.ResultDTOBodyAdvice,\
-  cn.deeproute.demo.system.ConfigChangeListener
+  cn.deeproute.demo.system.ConfigChangeListener,\
+  cn.deeproute.demo.system.log.DeeprouteLogProperties
