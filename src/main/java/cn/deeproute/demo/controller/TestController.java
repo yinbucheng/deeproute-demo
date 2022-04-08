@@ -9,6 +9,7 @@ import cn.deeproute.demo.system.time.PrintRT;
 import cn.deeproute.demo.system.time.PrintTime;
 import cn.deeproute.demo.system.web.NotAutoWrap;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
@@ -40,7 +41,8 @@ public class TestController {
 
     @RequestMapping(value = "save", produces = MediaType.APPLICATION_JSON_VALUE)
     @PrintArgs
-    public Object save(@RequestBody @Validated TestVO vo) {
+    public String save(@RequestBody @Validated TestVO vo) {
+        MDC.put("name","good");
         testService.save(vo);
         return "save success";
     }

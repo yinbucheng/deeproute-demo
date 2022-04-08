@@ -24,8 +24,10 @@
             </PatternLayout>
             <Policies>
                 <TimeBasedTriggeringPolicy/>
+                <!-- 日志文件大于100 MB滚动一次-->
                 <SizeBasedTriggeringPolicy size="1000 MB"/>
             </Policies>
+            <!--保存日志文件的最大个数，默认7个，大于此值会删除旧的日志文件 -->
             <DefaultRolloverStrategy max="20"/>
         </RollingRandomAccessFile>
 

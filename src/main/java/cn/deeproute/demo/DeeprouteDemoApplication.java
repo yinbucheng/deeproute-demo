@@ -12,7 +12,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableConfigurationProperties({NacosConfig.class})
-@EnableFeignClients(basePackages = "cn.deeproute.demo.feign")
+@EnableFeignClients(basePackages = "cn.deeproute.demo.feign" )
 @MapperScan(basePackages = "cn.deeproute.demo.mapper")
 @Slf4j
 public class DeeprouteDemoApplication {
